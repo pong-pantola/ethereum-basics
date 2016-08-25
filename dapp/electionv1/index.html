@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<title>Election System V1</title>
+
+<script src="./deployment.js"></script> 
+<script type='text/javascript'>
+
+function vote(){
+  var candidate = 0;
+  if (document.getElementById('rCandidate').checked)
+    candidate = 1;
+  else
+  if (document.getElementById('gCandidate').checked)
+    candidate = 2;
+  else
+  if (document.getElementById('bCandidate').checked)
+    candidate = 3;
+
+  contract.vote(candidate, {from: web3.eth.accounts[0]});
+}
+
+function viewResult(){
+  alert("RESULT:\n"+
+        "Mr. Red: "+contract.rVoteCount()+"\n"+
+        "Mr. Green: "+contract.gVoteCount()+"\n"+
+        "Mr. Blue: "+contract.bVoteCount()+"\n");
+}
+
+</script>
+
+</head>
+
+<body>
+  <h3> Election System by [PLACE YOUR NAME HERE] </h3>
+
+  Candidates: <br>
+  <input type="radio" name="candidate" id="rCandidate" checked> Mr. Red (Candidate #1) <br>
+  <input type="radio" name="candidate" id="gCandidate"> Mr. Green (Candidate #2) <br>
+  <input type="radio" name="candidate" id="bCandidate"> Mr. Blue (Candidate #3) <br>
+
+  <br>
+
+  <button onclick='vote()'>Vote</button>
+  <button onclick='viewResult()'>View Result</button>
+
+</body>
+
+</html>
