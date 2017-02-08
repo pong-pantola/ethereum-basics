@@ -20,7 +20,7 @@ function vote(){
   contract.vote(candidate, {from: web3.eth.accounts[0]});
 }
 
-function viewUnoffici	alResult(){
+function viewUnofficialResult(){
   alert("UNOFFICIAL RESULT:\n"+
         "Mr. Red: "+contract.rVoteCount()+"\n"+
         "Mr. Green: "+contract.gVoteCount()+"\n"+
